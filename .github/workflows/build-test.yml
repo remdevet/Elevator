@@ -1,0 +1,37 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Restore dependencies
+      run: dotnet restore ElevatorSystem.sln
+      
+    - name: Build solution
+      run: dotnet build ElevatorSystem.sln --no-restore --configuration Release
+      
+    - name: Run unit tests
+      run: dotnet test ElevatorSystem.sln --no-build --verbosity normal --configuration Release
+      
+    - name: Build status
+      if: success()
+      run: echo "✅ Build and tests completed successfully!"
+      
+    - name: Build status
+      if: failure()
+      run: echo "❌ Build or tests failed!"

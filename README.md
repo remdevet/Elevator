@@ -98,6 +98,43 @@ dotnet run --project src/Elevator.Console/Elevator.Console.csproj
    - Process simulation steps
    - Set maintenance modes
 
+## 🔄 Continuous Integration
+
+This project uses GitHub Actions for automated building and testing:
+
+### Workflows
+
+#### Build and Test (`build-test.yml`)
+- **Trigger**: Push to `main`/`master` branch or pull requests
+- **Actions**: 
+  - Restore NuGet dependencies
+  - Build the solution in Release configuration
+  - Run all unit tests
+  - Provide build status feedback
+
+#### CI/CD Pipeline (`ci-cd.yml`)
+- **Trigger**: Push to `main`/`master` branch or pull requests
+- **Features**:
+  - Multi-platform testing (Ubuntu & Windows)
+  - Dependency caching for faster builds
+  - Code quality analysis
+  - Comprehensive test reporting
+  - Workflow summary with detailed results
+
+### Local Testing
+You can run the same commands locally that the CI pipeline uses:
+
+```bash
+# Restore dependencies
+dotnet restore ElevatorSystem.sln
+
+# Build solution
+dotnet build ElevatorSystem.sln --configuration Release
+
+# Run tests
+dotnet test ElevatorSystem.sln --configuration Release
+```
+
 ## 📋 Usage Examples
 
 ### Calling an Elevator

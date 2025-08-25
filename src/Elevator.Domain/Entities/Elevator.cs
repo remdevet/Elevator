@@ -1,7 +1,5 @@
 using Common.Dry.Base;
-using Common.Messaging.Events;
 using Elevator.Domain.Enums;
-using Elevator.Domain.Events;
 
 namespace Elevator.Domain.Entities;
 

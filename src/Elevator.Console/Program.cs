@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 using Elevator.Domain.Interfaces;
 using Elevator.Domain.Enums;
 using Common.Messaging.Interfaces;
-using Common.Messaging.Events;
 using Elevator.Domain.Events;
 
 namespace Elevator.Console;

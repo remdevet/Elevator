@@ -1,4 +1,3 @@
-using Elevator.Domain.Entities;
 using Elevator.Domain.Enums;
 
 namespace Elevator.Domain.Interfaces;
